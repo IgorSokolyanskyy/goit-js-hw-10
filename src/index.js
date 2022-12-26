@@ -20,7 +20,7 @@ function onInputCountry(e) {
   const countryName = refs.searchBox.value.trim();
 
   if (countryName === '') {
-    onInnerHTML();
+    onClearMarkup();
     return;
   }
 
@@ -30,7 +30,7 @@ function onInputCountry(e) {
 function renderCountryCard(countrys) {
   if (countrys.length > 10) {
     Notify.info('Too many matches found. Please enter a more specific name.');
-    onInnerHTML();
+    onClearMarkup();
     return;
   }
 
@@ -49,11 +49,11 @@ function renderCountryCard(countrys) {
 
 function onFetchError(error) {
   Notify.failure('Oops, there is no country with that name');
-  onInnerHTML();
+  onClearMarkup();
   return error;
 }
 
-function onInnerHTML() {
+function onClearMarkup() {
   refs.countryInfo.innerHTML = '';
   refs.countryList.innerHTML = '';
 }
